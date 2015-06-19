@@ -7,7 +7,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -19,6 +18,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".DropoffActivity"
+            android:label="@string/title_activity_dropoff" >
+        </activity>
+        
     </application>
 
 </manifest>

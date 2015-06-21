@@ -20,6 +20,8 @@ public class OrdersActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
 
+        FakeServerInfo.updateOrders();
+
     }
 
 }

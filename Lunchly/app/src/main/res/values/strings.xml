@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">Lunchly</string>
 
+    <string-array name="restaurants">
+        <item>Boloco</item>
+        <item>Bolococo</item>
+        <item>Chipotle</item>
+        <item>Mc Donalds</item>
+        <item>Panera</item>
+        <item>Starbucks</item>
+    </string-array>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_dropoff">DropoffActivity</string>

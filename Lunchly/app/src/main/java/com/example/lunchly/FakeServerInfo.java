@@ -25,6 +25,8 @@ public class FakeServerInfo {
                 e.printStackTrace();
             }
         }
+
+        OrdersInfo.update(orders);
     }
 
     public static JSONArray getOrders(){

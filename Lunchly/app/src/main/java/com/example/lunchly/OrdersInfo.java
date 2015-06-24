@@ -13,6 +13,7 @@ public class OrdersInfo {
 
     public static void update(JSONArray updatedOrders){
         orders = updatedOrders;
+        calcTotalCost();
     }
 
     private static void calcTotalCost(){
@@ -25,10 +26,29 @@ public class OrdersInfo {
             }
         }
 
-        totalCost = "$"+total;
+        // Format total because of messy double rounding
+        String formattedTotal = ""+total;
+        if(!formattedTotal.contains("."))
+            formattedTotal = formattedTotal+".";
+        int numberOfDecimals = formattedTotal.length()-formattedTotal.indexOf(".");
+        if(numberOfDecimals < 2){
+            if(numberOfDecimals == 1)
+                formattedTotal = formattedTotal+"0";
+            else
+                formattedTotal = formattedTotal+"00";
+        }
+        else
+            formattedTotal = formattedTotal.substring(0, formattedTotal.indexOf(".")+3);
+
+        totalCost = "$"+formattedTotal;
     }
 
     public static String totalCost(){
         return totalCost;
     }
+
+    public static Integer numberOfOrders() {
+        return orders.length();
+    }
+
 }

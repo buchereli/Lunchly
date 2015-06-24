@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -22,6 +23,15 @@ public class OrdersActivity extends Activity {
 
         FakeServerInfo.updateOrders();
 
+        TextView timeTillDrop = (TextView) findViewById(R.id.timeTillDrop);
+        TextView numberOfOrders = (TextView) findViewById(R.id.numberOfOrders);
+        TextView totalCost = (TextView) findViewById(R.id.totalCost);
+        TextView totalProfit = (TextView) findViewById(R.id.totalProfit);
+
+        timeTillDrop.setText("1:21");
+        numberOfOrders.setText(OrdersInfo.numberOfOrders()+"");
+        totalCost.setText(OrdersInfo.totalCost());
+        totalProfit.setText((OrdersInfo.numberOfOrders() * 0.00)+"");
     }
 
 }

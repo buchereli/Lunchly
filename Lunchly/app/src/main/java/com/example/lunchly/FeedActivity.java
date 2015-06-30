@@ -6,19 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 
 /**
- * Created by Eli on 6/24/2015.
+ * Created by Eli on 6/30/2015.
  */
-public class LoginActivity extends Activity {
+public class FeedActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_feed);
     }
 
-    public void login(View v){
-        Intent myIntent = new Intent(this, FeedActivity.class);
+    public void goingSomewhere(View v){
+        Intent myIntent = new Intent(this, PickupActivity.class);
 //        myIntent.putExtra("key", value); //Optional parameters
         this.startActivity(myIntent);
     }
+
 }

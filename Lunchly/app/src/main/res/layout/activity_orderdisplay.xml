@@ -42,8 +42,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/custombuttonred"
         android:text="Decline Order"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:id="@+id/declineOrderButton"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_alignParentBottom="true"

@@ -30,9 +30,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/custombuttongreen"
         android:enabled="false"
         android:text="Next"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:onClick="next"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"

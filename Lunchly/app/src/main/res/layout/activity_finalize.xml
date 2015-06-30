@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Max orders?"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
         android:id="@+id/max"
         android:layout_marginBottom="90dp"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Private?"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
         android:id="@+id/pri"
         android:layout_above="@+id/smallPri"
@@ -35,6 +37,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Premium?"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
         android:id="@+id/premium"
         android:layout_above="@+id/smallPremium"
@@ -58,7 +61,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/privateSwitch"
         android:checked="true"
-        android:layout_alignTop="@+id/pri"
+        android:layout_below="@+id/max"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/smallPri"
         android:layout_alignLeft="@+id/numberPicker"
         android:layout_alignStart="@+id/numberPicker" />
 
@@ -104,6 +110,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/custombutton"
         android:text="Finish"
         android:id="@+id/finish"
         android:onClick="finalize"

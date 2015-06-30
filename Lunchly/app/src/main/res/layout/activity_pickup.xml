@@ -30,6 +30,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/custombutton"
+        android:enabled="false"
         android:text="Next"
         android:onClick="next"
         android:id="@+id/button"

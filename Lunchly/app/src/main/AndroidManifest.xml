@@ -6,11 +6,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:screenOrientation="portrait" >
+
         <activity
-            android:name=".OrderDisplayActivity"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:name=".LoginActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,11 +19,14 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".DropoffActivity"
-            android:label="@string/title_activity_dropoff" >
-        </activity>
-        
+        <activity android:label="@string/app_name" android:name=".PickupActivity"/>
+        <activity android:label="@string/app_name" android:name=".DropoffActivity"/>
+        <activity android:label="@string/app_name" android:name=".TimeSelectActivity"/>
+        <activity android:label="@string/app_name" android:name=".FinalizeActivity"/>
+        <activity android:label="@string/app_name" android:name=".OrdersActivity"/>
+        <activity android:label="@string/app_name" android:name=".OrderDisplayActivity"/>
+
+
     </application>
 
 </manifest>

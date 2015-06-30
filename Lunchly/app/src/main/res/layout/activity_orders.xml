@@ -18,6 +18,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/custombutton"
         android:text="No New Orders"
         android:id="@+id/button"
         android:layout_centerVertical="true"

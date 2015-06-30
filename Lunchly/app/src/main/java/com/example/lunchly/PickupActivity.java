@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ public class PickupActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pickup);
 
+        final Button button = (Button) findViewById(R.id.button);
+
         final AutoCompleteTextView autoComplete = (AutoCompleteTextView) findViewById(R.id.autoComplete_pickup_location);
         final String[] restaurants = getResources().getStringArray(R.array.restaurants);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.autocomplete_adapter, restaurants);
@@ -39,8 +42,12 @@ public class PickupActivity extends Activity {
                     InputMethodManager imm = (InputMethodManager) getSystemService(
                             INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                    if(!Arrays.asList(restaurants).contains(autoComplete.getText().toString()))
+                    if(!Arrays.asList(restaurants).contains(autoComplete.getText().toString())) {
                         Toast.makeText(getApplicationContext(), "We currently only support restaurants whose menu is contained within our database.", Toast.LENGTH_LONG).show();
+                        button.setEnabled(false);
+                    }
+                    else
+                        button.setEnabled(true);
                 }
                 return false;
             }
@@ -48,7 +55,9 @@ public class PickupActivity extends Activity {
     }
 
     public void next(View v){
-        Intent intent = new Intent(this, DropoffActivity.class);
+        Intent myIntent = new Intent(this, TimeSelectActivity.class);
+//        myIntent.putExtra("key", value); //Optional parameters
+        this.startActivity(myIntent);
     }
 
 }

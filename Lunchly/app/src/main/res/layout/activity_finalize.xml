@@ -5,108 +5,157 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".FinalizeActivity"
     android:background="@android:color/white" android:focusableInTouchMode="true">
 
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_above="@+id/finish" android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Max orders?"
-        android:textColor="@color/textColor"
-        android:textSize="30sp"
-        android:id="@+id/max"
-        android:layout_marginBottom="90dp"
-        android:layout_above="@+id/pri"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <RelativeLayout
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Private?"
-        android:textColor="@color/textColor"
-        android:textSize="30sp"
-        android:id="@+id/pri"
-        android:layout_above="@+id/smallPri"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <Space
+                android:id="@+id/center2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Premium?"
-        android:textColor="@color/textColor"
-        android:textSize="30sp"
-        android:id="@+id/premium"
-        android:layout_above="@+id/smallPremium"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Private?"
+                android:textColor="@color/textColor"
+                android:textSize="30sp"
+                android:id="@+id/pri"
+                android:layout_above="@+id/center2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_alignTop="@+id/premium"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/max"
-        android:layout_toEndOf="@+id/max" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Only accepted subscribers will see your post"
+                android:id="@+id/smallPri"
+                android:layout_below="@+id/pri"
+                android:layout_marginRight="-10dp"
+                android:layout_marginEnd="-10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@id/center2"
+                android:layout_alignEnd="@id/center2"/>
 
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/privateSwitch"
-        android:checked="true"
-        android:layout_below="@+id/max"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/smallPri"
-        android:layout_toRightOf="@+id/smallPri"
-        android:layout_toEndOf="@+id/smallPri" />
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/privateSwitch"
+                android:checked="true"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Leave as 0 for no max"
-        android:id="@+id/smallMax"
-        android:layout_marginTop="-90dp"
-        android:layout_below="@+id/max"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editText2"
-        android:layout_toStartOf="@+id/editText2"/>
+        </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Only accepted subscribers will see your post"
-        android:id="@+id/smallPri"
-        android:layout_marginBottom="45dp"
-        android:layout_above="@+id/premium"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editText2"
-        android:layout_toStartOf="@+id/editText2"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="How much you will charge per order"
-        android:id="@+id/smallPremium"
-        android:layout_marginBottom="45dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_above="@+id/finish"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editText2"
-        android:layout_toStartOf="@+id/editText2"/>
+        <RelativeLayout
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Space
+                android:id="@+id/center1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Max orders?"
+                android:textColor="@color/textColor"
+                android:textSize="30sp"
+                android:id="@+id/max"
+                android:layout_above="@id/center1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Leave as 0 for no max"
+                android:id="@+id/smallMax"
+                android:layout_below="@+id/max"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <RelativeLayout
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_alignLeft="@id/center1" android:layout_alignStart="@id/center1" >
+
+                <NumberPicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/numberPicker"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Space
+                android:id="@+id/center3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Premium?"
+                android:textColor="@color/textColor"
+                android:textSize="30sp"
+                android:id="@+id/premium"
+                android:layout_above="@+id/center3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="How much you will charge per order"
+                android:id="@+id/smallPremium"
+                android:layout_below="@+id/premium"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@id/center3"
+                android:layout_alignEnd="@id/center3"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/premiumAmount"
+                android:layout_centerVertical="true"
+                android:layout_alignLeft="@id/center3"
+                android:layout_alignStart="@id/center3"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -117,18 +166,10 @@
         android:textColor="@color/white"
         android:id="@+id/finish"
         android:onClick="finalize"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker"
-        android:layout_marginBottom="45dp"
-        android:layout_above="@+id/privateSwitch"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

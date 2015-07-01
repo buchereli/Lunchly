@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -25,17 +26,6 @@ public class OrderDisplayActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderdisplay);
-
-//        ScrollView order = (ScrollView) findViewById(R.id.scrollView);
-//        order.addView(createView("Burrito", "$8.49"));
-//        order.addView(createView("Drink", "$1.75"));
-//        order.addView(createView("Drink", "$1.75"));
-//        order.addView(createView("Drink", "$1.75"));
-//        order.addView(createView("Drink", "$1.75"));
-//        order.addView(createView("Drink", "$1.75"));
-//        order.addView(createView("Drink", "$1.75"));
-
-
     }
 
     public View createView(String item, String cost) {

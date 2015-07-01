@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,5 +34,14 @@ public class OrdersActivity extends Activity {
         totalCost.setText(OrdersInfo.totalCost());
         totalProfit.setText((OrdersInfo.numberOfOrders() * 0.00)+"");
     }
+
+    public void pressed(View v){
+        Button button = (Button) v.findViewById(R.id.button);
+        if(button.getText().equals("No New Orders")){
+            button.setText("Arrived at Starbucks");
+            button.setBackgroundResource(R.drawable.custombuttongreen);
+        }
+    }
+
 
 }

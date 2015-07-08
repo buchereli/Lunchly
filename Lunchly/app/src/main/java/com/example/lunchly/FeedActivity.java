@@ -22,4 +22,10 @@ public class FeedActivity extends Activity {
         this.startActivity(myIntent);
     }
 
+    public void openProfile(View v){
+        Intent myIntent = new Intent(this, ProfileActivity.class);
+//        myIntent.putExtra("key", value); //Optional parameters
+        this.startActivity(myIntent);
+    }
+
 }

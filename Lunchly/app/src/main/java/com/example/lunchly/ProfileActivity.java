@@ -2,18 +2,16 @@ package com.example.lunchly;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 
-
-public class DropoffActivity extends Activity {
+/**
+ * Created by Eli on 7/5/2015.
+ */
+public class ProfileActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dropoff);
+        setContentView(R.layout.activity_profile);
     }
 
-    public void setDropoffTime(View v){
-
-    }
 }

@@ -6,17 +6,53 @@
     android:focusableInTouchMode="true" android:focusable="true"
     android:background="@color/background">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:hint="Filters"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout" android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/filters"
+            android:hint="Filters"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/profile"
+            android:layout_toStartOf="@+id/profile" />
+
+        <ImageView
+            android:layout_width="?android:attr/listPreferredItemHeight"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:id="@+id/profile"
+            android:onClick="openProfile"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/profile" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" android:layout_above="@+id/button"
+        android:layout_alignParentRight="true" android:layout_alignParentEnd="true">
+
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:name="com.example.lunchly.FeedFragment"
+            android:id="@+id/fragment"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true" />
+
+    </RelativeLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -34,15 +70,4 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="com.example.lunchly.FeedFragment"
-        android:id="@+id/fragment"
-        android:layout_below="@+id/editText3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/button"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3" />
 </RelativeLayout>

@@ -5,6 +5,8 @@
     <color name="textColor">#ff000000</color>
     <color name="white">#ffffffff</color>
 
+    <color name="black">#ff000000</color>
+
     <color name="green">#79cf38</color>
     <color name="darkGreen">#54ad15</color>
     <color name="blue">#5f80c2</color>

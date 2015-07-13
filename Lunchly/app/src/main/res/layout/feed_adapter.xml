@@ -2,44 +2,50 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent" android:layout_height="wrap_content"
-    android:padding="@dimen/activity_vertical_margin" android:background="@color/white"
-    android:orientation="vertical">
+    android:padding="@dimen/activity_vertical_margin" android:background="@drawable/feedbackground"
+    android:orientation="vertical" android:layout_marginBottom="100dp" >
 
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content" >
 
         <ImageView
-            android:layout_width="?android:attr/listPreferredItemHeight"
-            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/profileImage"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
             android:src="@drawable/profile" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent" android:layout_height="match_parent"
             android:orientation="vertical" >
 
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/name"
-                android:text="Eli Bucher"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textIsSelectable="true" />
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:layout_centerVertical="true" >
 
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/time"
-                android:text="Jun 30 at 9:19am"
-                android:textColor="@color/lightTextColor"
-                android:textSize="20sp" />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/name"
+                    android:text="Eli Bucher"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textIsSelectable="true" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/time"
+                    android:text="Jun 30 at 9:19am"
+                    android:textColor="@color/lightTextColor"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -48,8 +54,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/info"
         android:text="I'm going to Chipotle.  I'll be back at Kayak around 12:30.  Want me to grab you something?"
-        android:textSize="20sp"
-        />
+        android:textSize="18sp"
+        android:layout_marginBottom="6dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -57,7 +63,6 @@
         android:background="@drawable/custombuttongreen"
         android:text="Make Request"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_marginTop="@dimen/activity_vertical_margin" />
+        android:textColor="@color/white" />
 
 </LinearLayout>

@@ -32,6 +32,9 @@ public class FeedFragment extends ListFragment {
         String[] values = new String[6];
         Adapter adapter = new Adapter(getActivity(), values);
         setListAdapter(adapter);
+
+        getListView().setDivider(null);
+        getListView().setDividerHeight(50);
     }
 
     @Override

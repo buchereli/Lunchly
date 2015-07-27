@@ -24,6 +24,7 @@
         <activity android:label="@string/app_name" android:name=".DropoffActivity"/>
         <activity android:label="@string/app_name" android:name=".TimeSelectActivity"/>
         <activity android:label="@string/app_name" android:name=".FinalizeActivity"/>
+        <activity android:label="@string/app_name" android:name=".PreviewPostActivity"/>
         <activity android:label="@string/app_name" android:name=".OrdersActivity"/>
         <activity android:label="@string/app_name" android:name=".OrderDisplayActivity"/>
 

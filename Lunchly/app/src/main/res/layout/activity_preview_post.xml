@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="@dimen/activity_vertical_margin" android:layout_height="match_parent" >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_alignParentTop="true" android:layout_above="@+id/post" >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:padding="12dp" android:background="@drawable/feedbackground"
+            android:orientation="vertical" android:layout_marginBottom="100dp"
+            android:layout_centerInParent="true" >
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/profileImage"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/profile" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:layout_centerVertical="true" >
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/name"
+                            android:text="Eli Bucher"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textIsSelectable="true" />
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time"
+                            android:text="Jun 30 at 9:19am"
+                            android:textColor="@color/lightTextColor"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/info"
+                android:text="I'm going to Chipotle.  I'll be back at Kayak around 12:30.  Want me to grab you something?"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custombuttongreen"
+                android:text="Make Request"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custombuttongreen"
+        android:text="Post"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:id="@+id/post"
+        android:onClick="post"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

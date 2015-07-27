@@ -46,8 +46,10 @@ public class PickupActivity extends Activity {
                         Toast.makeText(getApplicationContext(), "We currently only support restaurants whose menu is contained within our database.", Toast.LENGTH_LONG).show();
                         button.setEnabled(false);
                     }
-                    else
+                    else {
+                        Post.pickUp = autoComplete.getText().toString();
                         button.setEnabled(true);
+                    }
                 }
                 return false;
             }

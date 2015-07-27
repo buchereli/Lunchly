@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Lunchly</string>
 
+    <string name="facebook_app_id">469373463222756</string>
+
     <string-array name="restaurants">
         <item>Boloco</item>
         <item>Bolococo</item>

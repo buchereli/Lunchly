@@ -3,6 +3,9 @@ package com.example.lunchly;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -19,6 +22,9 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -47,6 +53,8 @@ public class FeedFragment extends ListFragment {
     private class Adapter extends ArrayAdapter<String> {
         private final Context context;
         private final String[] values;
+        ImageView profileImage;
+        String userID;
 
         public Adapter(Context context, String[] values) {
             super(context, R.layout.feed_adapter, values);
@@ -60,6 +68,10 @@ public class FeedFragment extends ListFragment {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View feedView = inflater.inflate(R.layout.feed_adapter, parent, false);
+
+            profileImage = (ImageView) feedView.findViewById(R.id.profileImage);
+            userID = "889570764470724";
+            new GetFacebookProfilePicture().execute();
 
             TextView text = (TextView) feedView.findViewById(R.id.info);
             ArrayList<Integer> spans = new ArrayList<>();
@@ -97,6 +109,34 @@ public class FeedFragment extends ListFragment {
             text.setMovementMethod(LinkMovementMethod.getInstance());
 
             return feedView;
+        }
+
+        private class GetFacebookProfilePicture extends AsyncTask<Void, Void, Bitmap> {
+            @Override
+            protected Bitmap doInBackground(Void... Void) {
+
+                URL imageURL = null;
+
+                try {
+                    imageURL = new URL("https://graph.facebook.com/" + userID + "/picture?type=large");
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+
+                Bitmap bitmap = null;
+
+                try {
+                    bitmap = BitmapFactory.decodeStream(imageURL.openConnection().getInputStream());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                return bitmap;
+            }
+
+            protected void onPostExecute(Bitmap bitmap) {
+                profileImage.setImageBitmap(bitmap);
+            }
         }
     }
 }

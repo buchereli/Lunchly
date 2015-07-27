@@ -88,6 +88,18 @@
         android:textColor="@color/white"
         android:id="@+id/post"
         android:onClick="post"
+        android:layout_above="@+id/postToFacebook"
+        android:layout_marginTop="@dimen/activity_vertical_margin" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custombuttonblue"
+        android:text="Post and Share on Facebook"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:id="@+id/postToFacebook"
+        android:onClick="post"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_alignParentBottom="true" />
 

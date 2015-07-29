@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent" android:layout_height="wrap_content"
-    android:padding="8dp" android:gravity="center_vertical"
-    android:background="@color/blue" >
+    android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginEnd="6dp"
-        android:src="@drawable/profile" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
 
-    <LinearLayout
-        android:layout_width="fill_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" >
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:padding="8dp" android:gravity="center_vertical"
+        android:background="@color/blue" >
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eli's Order"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/profile" />
 
-        <TextView
-            android:id="@+id/cost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="est. $6.80"
-            android:textStyle="italic"
-            android:textColor="@color/textColor"
-            android:textSize="15sp" />
+        <LinearLayout
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eli's Order"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="est. $6.80"
+                android:textStyle="italic"
+                android:textColor="@color/textColor"
+                android:textSize="15sp" />
+
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

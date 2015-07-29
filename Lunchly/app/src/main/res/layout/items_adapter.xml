@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="30dp"
-    android:layout_marginBottom="15dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:padding="8dp" android:orientation="vertical"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chicken Burrito"
+            android:textColor="@color/textColor"
+            android:textSize="16sp"
+            android:id="@+id/item"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$6.80"
+            android:textColor="@color/textColor"
+            android:textSize="16sp"
+            android:id="@+id/cost"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="item"
-        android:textColor="@color/textColor"
-        android:id="@+id/item"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="White Rice, Fajita Veggies, Black Beans, Fresh Tomato Salsa, Cheese, Lettuce"
+        android:textColor="@color/lightTextColor"
+        android:textSize="13sp"
+        android:id="@+id/details"
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="cost"
-        android:textColor="@color/textColor"
-        android:id="@+id/cost"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-</RelativeLayout>
+        android:text="Special Instructions: Extra salsa please"
+        android:textColor="@color/lightTextColor"
+        android:textSize="13sp"
+        android:id="@+id/special" />
+
+</LinearLayout>

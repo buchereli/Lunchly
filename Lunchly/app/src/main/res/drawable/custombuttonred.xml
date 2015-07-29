@@ -18,7 +18,7 @@
     <item android:state_enabled="true" android:state_focused="true" >
         <shape>
             <solid
-                android:color="#ffca0517" />
+                android:color="#ff8c0517" />
             <corners
                 android:radius="6dp" />
             <padding
@@ -32,7 +32,7 @@
     <item android:state_enabled="true" android:state_pressed="true" >
         <shape>
             <solid
-                android:color="#ff920411" />
+                android:color="#ff923713" />
             <corners
                 android:radius="6dp" />
             <padding
@@ -46,7 +46,7 @@
     <item android:state_enabled="true" >
         <shape>
             <solid
-                android:color="#ffca0517" />
+                android:color="#ff8c0517" />
             <corners
                 android:radius="10dp" />
             <padding

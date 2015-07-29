@@ -3,10 +3,14 @@ package com.example.lunchly;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -31,12 +35,18 @@ import java.util.Arrays;
 public class LoginActivity extends Activity {
 
     CallbackManager callbackManager;
+    Button login;
+    EditText user, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_login);
+
+        login = (Button) findViewById(R.id.loginButton);
+        user = (EditText) findViewById(R.id.email);
+        pass = (EditText) findViewById(R.id.password);
 
         final LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -112,35 +122,6 @@ public class LoginActivity extends Activity {
 
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.splash, container, false);
-//
-//        loginButton = (LoginButton) view.findViewById(R.id.login_button);
-//        loginButton.setReadPermissions("user_friends");
-//        // If using in a fragment
-//        loginButton.setFragment(this);
-//        // Other app specific specialization
-//
-//        // Callback registration
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                // App code
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//                // App code
-//            }
-//
-//            @Override
-//            public void onError(FacebookException exception) {
-//                // App code
-//            }
-//        });
-//    }
 
     public void login(){
         Intent myIntent = new Intent(this, FeedActivity.class);

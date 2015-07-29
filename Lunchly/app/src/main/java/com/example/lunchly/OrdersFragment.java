@@ -26,6 +26,9 @@ public class OrdersFragment extends ListFragment {
         String[] values = Parser.parseOrdersToValues(FakeServerInfo.getOrders());
         Adapter adapter = new Adapter(getActivity(), values);
         setListAdapter(adapter);
+
+        getListView().setDivider(null);
+        getListView().setDividerHeight(50);
     }
 
     @Override
@@ -50,28 +53,34 @@ public class OrdersFragment extends ListFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View orderView = inflater.inflate(R.layout.orders_adapter, parent, false);
 
-            // Set Location
-            TextView location = (TextView) orderView.findViewById(R.id.location);
-            try {
-                location.setText(FakeServerInfo.getOrders().getJSONObject(position).getString("location"));
-            } catch (JSONException e) {
-                e.printStackTrace();
+            View view;
+            if(position == 0)
+                view = inflater.inflate(R.layout.details_view, parent, false);
+            else {
+                view = inflater.inflate(R.layout.orders_adapter, parent, false);
+
+//            // Set Location
+//            TextView location = (TextView) orderView.findViewById(R.id.location);
+//            try {
+//                location.setText(FakeServerInfo.getOrders().getJSONObject(position).getString("location"));
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+
+                // Set Estimated Cost
+//            TextView cost = (TextView) orderView.findViewById(R.id.cost);
+//            try {
+//                cost.setText(FakeServerInfo.getOrders().getJSONObject(position).getString("cost"));
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+
+                // Set Profile Image
+                ImageView imageView = (ImageView) view.findViewById(R.id.icon);
             }
 
-            // Set Estimated Cost
-            TextView cost = (TextView) orderView.findViewById(R.id.cost);
-            try {
-                cost.setText(FakeServerInfo.getOrders().getJSONObject(position).getString("cost"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            // Set Profile Image
-            ImageView imageView = (ImageView) orderView.findViewById(R.id.icon);
-
-            return orderView;
+            return view;
         }
     }
 }

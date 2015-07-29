@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#e8e9eb</color>
+    <color name="tan">#dfcaae</color>
     <color name="lightTextColor">#8f95a1</color>
     <color name="textColor">#ff000000</color>
     <color name="white">#ffffffff</color>

@@ -45,11 +45,11 @@ public class OrderDisplayFragment extends ListFragment {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View itemView = inflater.inflate(R.layout.items_adapter, parent, false);
 
-            TextView item = (TextView) itemView.findViewById(R.id.item);
-            item.setText("Burrito");
-
-            TextView cost = (TextView) itemView.findViewById(R.id.cost);
-            cost.setText("$7.49");
+//            TextView item = (TextView) itemView.findViewById(R.id.item);
+//            item.setText("Burrito");
+//
+//            TextView cost = (TextView) itemView.findViewById(R.id.cost);
+//            cost.setText("$7.49");
 
             return itemView;
         }

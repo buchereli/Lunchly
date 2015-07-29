@@ -5,11 +5,17 @@
 
     <string-array name="restaurants">
         <item>Boloco</item>
-        <item>Bolococo</item>
         <item>Chipotle</item>
         <item>Mc Donalds</item>
         <item>Panera</item>
         <item>Starbucks</item>
+    </string-array>
+
+    <string-array name="filters">
+        <item>Around Me</item>
+        <item>Following</item>
+        <item>Free Delivery</item>
+        <item>Soon</item>
     </string-array>
 
     <string name="hello_world">Hello world!</string>

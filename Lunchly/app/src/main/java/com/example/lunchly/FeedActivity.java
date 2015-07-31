@@ -80,6 +80,12 @@ public class FeedActivity extends Activity {
         this.startActivity(myIntent);
     }
 
+    public void makeRequest(View v){
+        Intent myIntent = new Intent(this, MenuActivity.class);
+//        myIntent.putExtra("key", value); //Optional parameters
+        this.startActivity(myIntent);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();

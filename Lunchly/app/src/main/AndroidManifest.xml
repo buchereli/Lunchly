@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:label="@string/app_name" android:name=".FeedActivity"/>
+        <activity android:label="@string/app_name" android:name=".MenuActivity"/>
         <activity android:label="@string/app_name" android:name=".ProfileActivity"/>
         <activity android:label="@string/app_name" android:name=".PickupActivity"/>
         <activity android:label="@string/app_name" android:name=".DropoffActivity"/>

@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:padding="8dp" android:background="@color/blue" >
+    android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Header"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:id="@id/header"
-        android:layout_centerHorizontal="true"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Subtext"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        android:textColor="@color/white"
-        android:layout_below="@id/header"
-        android:id="@+id/subtext"
-        android:layout_centerHorizontal="true" />
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:padding="8dp" android:background="@color/blue" >
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Header"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:id="@id/header"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtext"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:textColor="@color/white"
+            android:layout_below="@id/header"
+            android:id="@+id/subtext"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -17,11 +17,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -31,93 +34,123 @@ import java.util.ArrayList;
 /**
  * Created by Eli on 7/30/2015.
  */
-public class MenuFragment extends ListFragment {
+public class MenuFragment extends Fragment {
 
     String line;
+    ArrayList<String> headers;
+    ArrayList<ArrayList<String>> children;
+    LayoutInflater inflater;
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        String[] values  = {
-                "*DD Combos|Combos Include Medium Hot Coffee",
-                "2 Donuts|$3.59|Donut",
-                "Muffin|$3.39|Muffin",
-                "Bagel with Cream Cheese|$3.69|Bagel",
-                "Sausage, Egg & Cheese on a Croissant - with Hash Browns|$5.79|Croissant",
-                "Bacon, Egg & Cheese on a Bagel - with Hash Browns|$5.79|Bagel",
-                "Veggie Egg White Flatbread|$4.59|Sandwich",
-                "Ham, Egg & Cheese on an English Muffin - with Hash Browns|$5.79|Sandwich",
-                "Big n' Toasted - with Hash Browns|$6.19|Sandwich",
-                "Wake-Up Wrap (Bacon, Ham, or Sausage)|$3.09|Wrap",
-                "Turkey Sausage Flatbread with Hash Browns|$5.79|Sandwich" };
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.expandable_list, null);
+        this.inflater = inflater;
 
-        Adapter adapter = new Adapter(getActivity(), values);
-        setListAdapter(adapter);
+        readFile();
+
+        ExpandableListView list = (ExpandableListView) v.findViewById(R.id.list);
+        list.setAdapter(new Adapter());
+
+        return v;
     }
 
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-//        Intent myIntent = new Intent(getActivity(), OrderDisplayActivity.class);
-////        myIntent.putExtra("key", value); //Optional parameters
-//        getActivity().startActivity(myIntent);
-    }
+    public class Adapter extends BaseExpandableListAdapter {
 
-    private class Adapter extends ArrayAdapter<String> {
-        private final Context context;
-        private final String[] values;
+//        private String[] groups = { "People Names", "Dog Names", "Cat Names", "Fish Names" };
+//
+//        private String[][] children = {
+//                {},
+//                { "Ace", "Bandit", "Cha-Cha", "Deuce" },
+//                { "Fluffy", "Snuggles" },
+//                { "Goldy", "Bubbles" }
+//        };
 
-        public Adapter(Context context, String[] values) {
-            super(context, R.layout.activity_menu, values);
-            this.context = context;
-            this.values = values;
+        @Override
+        public int getGroupCount() {
+            return headers.size();
         }
 
-        // Create ListView View
         @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        public int getChildrenCount(int i) {
+            return children.get(i).size();
+        }
 
-            View view;
+        @Override
+        public Object getGroup(int i) {
+            return headers.get(i);
+        }
 
-            line = values[position];
+        @Override
+        public Object getChild(int i, int i1) {
+            return children.get(i).get(i1);
+        }
 
-            if(line.startsWith("*")) {
-                view = inflater.inflate(R.layout.menu_header_adapter, parent, false);
+        @Override
+        public long getGroupId(int i) {
+            return i;
+        }
 
-                line = line.substring(1);
+        @Override
+        public long getChildId(int i, int i1) {
+            return i1;
+        }
 
-                TextView header = (TextView) view.findViewById(R.id.header);
-                TextView subtext = (TextView) view.findViewById(R.id.subtext);
+        @Override
+        public boolean hasStableIds() {
+            return true;
+        }
 
-                header.setText(getNext());
-                subtext.setText(getNext());
-            }
-            else {
-                view = inflater.inflate(R.layout.menu_item_adapter, parent, false);
+        @Override
+        public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
+            line = headers.get(i);
 
-                TextView item = (TextView) view.findViewById(R.id.item);
-                TextView cost = (TextView) view.findViewById(R.id.cost);
-                ImageView image = (ImageView) view.findViewById(R.id.image);
+            View v = inflater.inflate(R.layout.menu_header_adapter, null);
 
-                item.setText(getNext());
-                cost.setText(getNext());
-                image.setImageBitmap(getImage(getNext()));
-            }
+            TextView header = (TextView) v.findViewById(R.id.header);
+            TextView subtext = (TextView) v.findViewById(R.id.subtext);
 
-            return view;
+            header.setText(getNext());
+            subtext.setText(getNext());
+
+            return v;
+        }
+
+        @Override
+        public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
+            line = children.get(i).get(i1);
+
+            View v = inflater.inflate(R.layout.menu_item_adapter,null);
+
+            TextView item = (TextView) v.findViewById(R.id.item);
+            TextView cost = (TextView) v.findViewById(R.id.cost);
+            ImageView image = (ImageView) v.findViewById(R.id.image);
+
+            item.setText(getNext());
+            cost.setText(getNext());
+            image.setImageBitmap(getImage(getNext()));
+
+            return v;
+        }
+
+        @Override
+        public boolean isChildSelectable(int i, int i1) {
+            return false;
         }
 
         public String getNext(){
-            int i = 1;
+            if(line.length() != 0) {
+                int i = 1;
 
-            while(i < line.length() && line.charAt(i) != '|')
-                i++;
+                while (i < line.length() && line.charAt(i) != '|')
+                    i++;
 
-            String item = line.substring(0, i);
-            if(i != line.length())
-                line = line.substring(i+1);
+                String item = line.substring(0, i);
+                if (i < line.length())
+                    line = line.substring(i + 1);
 
-            return item;
+                return item;
+            }
+            return "";
         }
 
         public Bitmap getImage(String type){
@@ -126,8 +159,18 @@ public class MenuFragment extends ListFragment {
 
             if(type.equals("Donut") || type.equals("Muffin"))
                 start = new Point(297, 335);
-            if(type.equals("Bagel") || type.equals("Croissant") || type.equals("Flatbread") || type.equals("Sandwich") || type.equals("Wrap"))
+            if(type.equals("Bagel") || type.equals("Croissant") || type.equals("Flatbread") || type.equals("Sandwich"))
                 start = new Point(0, 95);
+            if(type.equals("Fries"))
+                start = new Point(99, 115);
+            if(type.equals("Wrap"))
+                start = new Point(99, 230);
+            if(type.equals("Coffee"))
+                start = new Point(0, 335);
+            if(type.equals("Tea"))
+                start = new Point(99, 335);
+            if(type.equals("Drink"))
+                start = new Point(198, 115);
 
             InputStream is = getResources().openRawResource(R.raw.food_icons);
             Bitmap sheet = BitmapFactory.decodeStream(is);
@@ -135,6 +178,40 @@ public class MenuFragment extends ListFragment {
 
             return Bitmap.createScaledBitmap(image, 200, 200, true);
         }
+    }
+
+    private String[] readFile(){
+        InputStream inputStream = getResources().openRawResource(R.raw.dunkin_donuts_menu);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+        int i;
+        try {
+            i = inputStream.read();
+            while (i != -1)
+            {
+                byteArrayOutputStream.write(i);
+                i = inputStream.read();
+            }
+            inputStream.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        String[] lines = byteArrayOutputStream.toString().split("\\r?\\n");
+        headers = new ArrayList<>();
+        children = new ArrayList<>();
+
+        for(int index = 0; index < lines.length; index++){
+            if(lines[index].startsWith("*")) {
+                headers.add(lines[index].substring(1));
+                children.add(new ArrayList<String>());
+            }
+            else
+                children.get(headers.size()-1).add(lines[index]);
+        }
+
+        return byteArrayOutputStream.toString().split("\\r?\\n");
     }
 }
 

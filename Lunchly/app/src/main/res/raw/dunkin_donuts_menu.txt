@@ -1,12 +1,67 @@
-**DD Combos
-*Combos Include Medium Hot Coffee
+*DD Combos|Combos Include Medium Hot Coffee
 2 Donuts|$3.59|Donut
 Muffin|$3.39|Muffin
 Bagel with Cream Cheese|$3.69|Bagel
-Sausage, Egg & Cheese on a Croisssant - with Hash Browns|$5.79|Croisssant
+Sausage, Egg & Cheese on a Croisssant - with Hash Browns|$5.79|Croissant
 Bacon, Egg & Cheese on a Bagel - with Hash Browns|$5.79|Bagel
 Veggie Egg White Flatbread|$4.59|Sandwich
 Ham, Egg & Cheese on an English Muffin - with Hash Browns|$5.79|Sandwich
 Big n' Toasted - with Hash Browns|$6.19|Sandwich
 Wake-Up Wrap (Bacon, Ham, or Sausage)|$3.09|Wrap
 Turkey Sausage Flatbread with Hash Browns|$5.79|Sandwich
+*DD Combos|Combos Include Small Iced Tea
+Snack N' Go Chicken Wrap|$3.29|Wrap
+Snack N’ Go Steak Wrap|$3.29|Wrap
+Deluxe Grilled Cheese (Ham or Bacon) - with Hash Browns|$5.79|Sandwich
+Texas Toast Grilled Cheese - with Hash Browns|$5.19|Sandwich
+Turkey, Cheddar & Bacon Flatbread - with Hash Browns|$5.99|Sandwich
+Chicken Salad or Tuna Salad Sandwich - with Hash Browns|$5.39|Salad
+Chicken Bacon Sandwich - with Hash Browns|$5.99|Sandwich
+*Anytime Breakfast|Sandwiches Served on a Bagel, Croissant, English Muffin, Biscuit, or Flatbread
+Classic (Egg & Cheese)|$2.49|Bagel
+Classic (Ham, Bacon, or Sausage)|$3.49|Bagel
+Egg White Omelet (Veggie)|$2.99|Egg
+Egg White Omelet (Ham, Bacon, or Sausage)|$3.99|Egg
+Egg & Cheese Wrap|$1.19|Wrap
+Egg & Cheese Wrap (Ham, Bacon, or Sausage)|$1.39|Wrap
+Oatmeal with Medium Coffee|$3.89|Soop
+Turkey Sausage Wrap|$1.39|Wrap
+Turkey Sausage Sandwich|$3.49|Sandwich
+*Bakery Favorites
+Donut|$0.95|Donut
+Donuts 1/2 Dozen|$5.49|Donut
+Donuts Dozen|$8.99|Donut
+Muffins 1 Pc.|$1.69|Muffin
+Muffins 4 Pc.|$5.99|Muffin
+Bagel|$0.89|Bagel
+Bagels 1/2 Dozen|$4.99|Bagel
+Bagel with Cream Cheese|$1.99|Bagel
+Munchkins 25 Pc.|$5.99|Donut
+Munchkins 50 Pc.|$8.99|Donut
+Hash Brown|$1.29|Fries
+Croissant|$1.49|Croissant
+Fancy|$1.29|Croissant
+Coffee Roll|$1.29|Donut
+*Beverages
+Coffee| |Coffee
+Iced Coffee| |Coffee
+Dunkaccino| |Coffee
+Vanilla Chai|$2.15|Coffee
+Cappuccino| |Coffee
+Box O' Joe|$14.99|Coffee
+Hot Chocolate| |Coffee
+Hot Tea| |Tea
+Latte| |Coffee
+Iced Latte| |Coffee
+Iced Latte Lite| |Coffee
+Iced Tea| |Tea
+Coolatta| |Drink
+Frozen Coffee| |Coffee
+*Sandwiches
+Turkey, Cheddar & Bacon Sandwich|$3.69|Sandwich
+Ham & Cheese Sandwich|$3.69|Sandwich
+Chicken Salad|$3.49|Sandwich
+Tune Salad|$3.49|Sandwich
+Tuna Melt|$3.69|Sandwich
+Texas Toast Grilled Cheese|$2.99|Sandwich
+Chicken Biscuit|$2.99|Sandwich

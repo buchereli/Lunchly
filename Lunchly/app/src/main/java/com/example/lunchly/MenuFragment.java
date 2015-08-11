@@ -24,6 +24,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,10 +39,8 @@ import java.util.ArrayList;
  */
 public class MenuFragment extends Fragment {
 
-    String line;
-    ArrayList<String> headers;
-    ArrayList<ArrayList<String>> children;
     LayoutInflater inflater;
+    JSONObject menu;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,41 +49,69 @@ public class MenuFragment extends Fragment {
 
         readFile();
 
-        ExpandableListView list = (ExpandableListView) v.findViewById(R.id.list);
-        list.setAdapter(new Adapter());
+        final ExpandableListView list = (ExpandableListView) v.findViewById(R.id.list);
+        final Adapter adapter = new Adapter();
+        list.setAdapter(adapter);
+
+        list.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int i, int i1, long id) {
+
+                try {
+                    menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).put("number",
+                            menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).optInt("number") + 1);
+
+                    JSONObject addToOrder = new JSONObject(menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).toString());
+                    addToOrder.put("number", 0);
+
+                    menu.optJSONArray("main").optJSONObject(menu.optJSONArray("main").length()-1).getJSONArray("items").put(addToOrder);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                adapter.notifyDataSetChanged();
+                return true;
+            }
+        });
+
+        list.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+//                if (groupPosition == headers.size() - 1)
+//                    return true;
+                return false;
+            }
+        });
+
+//        list.expandGroup(headers.size() - 1);
 
         return v;
     }
 
-    public class Adapter extends BaseExpandableListAdapter {
 
-//        private String[] groups = { "People Names", "Dog Names", "Cat Names", "Fish Names" };
-//
-//        private String[][] children = {
-//                {},
-//                { "Ace", "Bandit", "Cha-Cha", "Deuce" },
-//                { "Fluffy", "Snuggles" },
-//                { "Goldy", "Bubbles" }
-//        };
+    public class Adapter extends BaseExpandableListAdapter {
 
         @Override
         public int getGroupCount() {
-            return headers.size();
+            return menu.optJSONArray("main").length();
         }
 
         @Override
         public int getChildrenCount(int i) {
-            return children.get(i).size();
+            return menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").length();
         }
 
         @Override
         public Object getGroup(int i) {
-            return headers.get(i);
+            return menu.optJSONArray("main").optJSONObject(i).optString("header");
         }
 
         @Override
         public Object getChild(int i, int i1) {
-            return children.get(i).get(i1);
+            return menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).optString("text");
         }
 
         @Override
@@ -102,81 +131,88 @@ public class MenuFragment extends Fragment {
 
         @Override
         public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
-            line = headers.get(i);
-
             View v = inflater.inflate(R.layout.menu_header_adapter, null);
 
             TextView header = (TextView) v.findViewById(R.id.header);
             TextView subtext = (TextView) v.findViewById(R.id.subtext);
 
-            header.setText(getNext());
-            subtext.setText(getNext());
+            header.setText(menu.optJSONArray("main").optJSONObject(i).optString("header"));
+            subtext.setText(menu.optJSONArray("main").optJSONObject(i).optString("subheader"));
 
             return v;
         }
 
         @Override
-        public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
-            line = children.get(i).get(i1);
-
+        public View getChildView(final int i, final int i1, boolean b, View view, ViewGroup viewGroup) {
             View v = inflater.inflate(R.layout.menu_item_adapter,null);
 
-            TextView item = (TextView) v.findViewById(R.id.item);
-            TextView cost = (TextView) v.findViewById(R.id.cost);
-            ImageView image = (ImageView) v.findViewById(R.id.image);
+            final TextView item = (TextView) v.findViewById(R.id.item);
+            final TextView cost = (TextView) v.findViewById(R.id.cost);
+            final ImageView image = (ImageView) v.findViewById(R.id.image);
+            final TextView number = (TextView) v.findViewById(R.id.number);
 
-            item.setText(getNext());
-            cost.setText(getNext());
-            image.setImageBitmap(getImage(getNext()));
+            item.setText(menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).optString("text"));
+            cost.setText("$" + menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).optString("cost"));
+            image.setImageBitmap(getImage(menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).optString("image")));
+
+            final TextView x = (TextView) v.findViewById(R.id.x);
+            x.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    try {
+                        menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).put("number", 0);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    notifyDataSetChanged();
+                }
+            });
+
+            number.setText("");
+            if(menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).optInt("number") != 0) {
+                number.setText(" x " + menu.optJSONArray("main").optJSONObject(i).optJSONArray("items").optJSONObject(i1).optString("number"));
+                x.setText("X");
+            }
+            else
+                x.setText("");
 
             return v;
         }
 
         @Override
         public boolean isChildSelectable(int i, int i1) {
-            return false;
-        }
-
-        public String getNext(){
-            if(line.length() != 0) {
-                int i = 1;
-
-                while (i < line.length() && line.charAt(i) != '|')
-                    i++;
-
-                String item = line.substring(0, i);
-                if (i < line.length())
-                    line = line.substring(i + 1);
-
-                return item;
-            }
-            return "";
+            return true;
         }
 
         public Bitmap getImage(String type){
 
-            Point start = new Point(0, 0);
+//            Point start = new Point(0, 0);
+//
+//            if(type.equals("Donut") || type.equals("Muffin"))
+//                start = new Point(297, 335);
+//            else if(type.equals("Bagel") || type.equals("Croissant") || type.equals("Flatbread") || type.equals("Sandwich"))
+//                start = new Point(0, 95);
+//            else if(type.equals("Fries"))
+//                start = new Point(99, 115);
+//            else if(type.equals("Wrap"))
+//                start = new Point(99, 230);
+//            else if(type.equals("Coffee"))
+//                start = new Point(0, 335);
+//            else if(type.equals("Tea"))
+//                start = new Point(99, 335);
+//            else if(type.equals("Drink"))
+//                start = new Point(198, 115);
+//
+//            InputStream is = getResources().openRawResource(R.raw.food_icons);
+//            Bitmap sheet = BitmapFactory.decodeStream(is);
+//            Bitmap image = Bitmap.createBitmap(sheet, start.x, start.y, 99, 105);
 
-            if(type.equals("Donut") || type.equals("Muffin"))
-                start = new Point(297, 335);
-            if(type.equals("Bagel") || type.equals("Croissant") || type.equals("Flatbread") || type.equals("Sandwich"))
-                start = new Point(0, 95);
-            if(type.equals("Fries"))
-                start = new Point(99, 115);
-            if(type.equals("Wrap"))
-                start = new Point(99, 230);
-            if(type.equals("Coffee"))
-                start = new Point(0, 335);
-            if(type.equals("Tea"))
-                start = new Point(99, 335);
-            if(type.equals("Drink"))
-                start = new Point(198, 115);
+            InputStream is = getResources().openRawResource(R.raw.baconeggcheese);
+            Bitmap image = BitmapFactory.decodeStream(is);
 
-            InputStream is = getResources().openRawResource(R.raw.food_icons);
-            Bitmap sheet = BitmapFactory.decodeStream(is);
-            Bitmap image = Bitmap.createBitmap(sheet, start.x, start.y, 99, 105);
-
-            return Bitmap.createScaledBitmap(image, 200, 200, true);
+            return Bitmap.createScaledBitmap(image, 150, 150, true);
         }
     }
 
@@ -198,17 +234,10 @@ public class MenuFragment extends Fragment {
             e.printStackTrace();
         }
 
-        String[] lines = byteArrayOutputStream.toString().split("\\r?\\n");
-        headers = new ArrayList<>();
-        children = new ArrayList<>();
-
-        for(int index = 0; index < lines.length; index++){
-            if(lines[index].startsWith("*")) {
-                headers.add(lines[index].substring(1));
-                children.add(new ArrayList<String>());
-            }
-            else
-                children.get(headers.size()-1).add(lines[index]);
+        try {
+            menu = new JSONObject(byteArrayOutputStream.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
         return byteArrayOutputStream.toString().split("\\r?\\n");

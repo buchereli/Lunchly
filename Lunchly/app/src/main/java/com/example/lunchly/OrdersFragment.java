@@ -30,13 +30,13 @@ public class OrdersFragment extends Fragment {
         View v = inflater.inflate(R.layout.expandable_list, null);
         this.inflater = inflater;
 
-        ExpandableListView elv = (ExpandableListView) v.findViewById(R.id.list);
-        elv.setAdapter(new SavedTabsListAdapter());
+        ExpandableListView list = (ExpandableListView) v.findViewById(R.id.list);
+        list.setAdapter(new Adapter());
 
         return v;
     }
 
-    public class SavedTabsListAdapter extends BaseExpandableListAdapter {
+    public class Adapter extends BaseExpandableListAdapter {
 
         private String[] groups = { "People Names", "Dog Names", "Cat Names", "Fish Names" };
 

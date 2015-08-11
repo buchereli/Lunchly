@@ -1,36 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:padding="8dp" android:background="@color/white">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:id="@+id/minus"
-        android:layout_centerVertical="true"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:id="@+id/plus"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"/>
+    android:padding="8dp" android:background="@color/white" >
 
     <LinearLayout
-        android:layout_width="0dp" android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/minus" android:layout_toEndOf="@id/minus"
-        android:layout_toLeftOf="@id/plus"  android:layout_toStartOf="@id/plus"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/x" android:layout_toStartOf="@+id/x"
         android:gravity="center_vertical" >
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/profile"
-            android:id="@+id/image" />
+            android:id="@+id/image"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
 
         <LinearLayout
             android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -41,19 +24,44 @@
                 android:layout_height="wrap_content"
                 android:text="Classic Egg and Cheese"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="17sp"
+                android:textStyle="bold"
                 android:id="@+id/item" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$2.49"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                android:id="@+id/cost" />
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$2.49"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:id="@+id/cost" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" x 1"
+                    android:textColor="@color/red"
+                    android:textSize="13sp"
+                    android:id="@+id/number" />
+
+            </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:id="@+id/x"
+        android:layout_margin="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>

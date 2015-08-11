@@ -40,7 +40,7 @@ public class FeedFragment extends ListFragment {
         setListAdapter(adapter);
 
         getListView().setDivider(null);
-        getListView().setDividerHeight(50);
+        getListView().setDividerHeight(30);
     }
 
     @Override

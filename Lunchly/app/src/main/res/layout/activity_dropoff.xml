@@ -1,12 +1,86 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:padding="@dimen/activity_vertical_margin"
-    tools:context=".DropoffActivity" android:background="@android:color/white" >
+    android:layout_height="match_parent" tools:context=".DropoffActivity"
+    android:focusableInTouchMode="true" android:background="@color/background" >
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:id="@+id/layout" android:orientation="vertical"
+        android:background="@color/blue" android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location:"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:id="@+id/textView2" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:inputType="textCapWords"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:textColor="@color/white"
+                android:id="@+id/address" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:id="@+id/textView1" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:hint="i.e. Kayak"
+                android:inputType="textCapWords"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:textColorHint="@color/white"
+                android:id="@+id/description" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button2"
+        android:layout_below="@+id/layout" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Drop-Off Location"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:id="@+id/button2"
+        android:background="@drawable/custombuttongreen"
+        android:onClick="setDropoffTime"
+        android:layout_margin="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

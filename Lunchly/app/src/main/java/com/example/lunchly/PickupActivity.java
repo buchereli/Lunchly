@@ -57,7 +57,7 @@ public class PickupActivity extends Activity {
     }
 
     public void next(View v){
-        Intent myIntent = new Intent(this, TimeSelectActivity.class);
+        Intent myIntent = new Intent(this, DropoffActivity.class);
 //        myIntent.putExtra("key", value); //Optional parameters
         this.startActivity(myIntent);
     }

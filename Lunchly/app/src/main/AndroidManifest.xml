@@ -39,8 +39,17 @@
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true" />
 
-    </application>
+        <!--Google MAP API key-->
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBgWd9xo3vw5jVStqfunSXLnjtUy0Of17g" />
+
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    </application>
 
 </manifest>

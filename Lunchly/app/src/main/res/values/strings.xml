@@ -5,7 +5,9 @@
 
     <string-array name="restaurants">
         <item>Boloco</item>
+        <item>Burger King</item>
         <item>Chipotle</item>
+        <item>Dunkin Donuts</item>
         <item>Mc Donalds</item>
         <item>Panera</item>
         <item>Starbucks</item>
